@@ -1,0 +1,53 @@
+<app-title title="Control Flow"/>
+
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div class="bg-white rounded shadow p-10">
+        <h2 class="text-2xl font-bold mb-5">if: {{showContent()}}</h2>
+        <button class="p-2 bg-blue-500 rounded text-white"            
+        (click)="toggleContent()">Click me!</button>
+        @if (showContent()) {
+            <h1>Hola mundo!</h1>
+        } @else {
+            <h1>************</h1>
+        }
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <h2 class="text-3xl">{{grade()}}</h2>
+        @switch (grade()) {
+            @case ('A') {
+                <p>Arriba de 90</p>
+            }
+            @case ('B') {
+                <p>Arriba de 80</p>  
+            }
+            @default {  
+                <p>Reprobado</p>
+            }
+        }
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+            @for (item of frameworks(); track frameworks; let i = $index) {
+                <li>{{i + 1}} - {{item}}</li>
+            }
+        </ul>
+    </div>
+    
+    <div class="bg-white rounded shadow p-10">
+        <ul>
+            @for (item of frameworks2(); track $index) {
+                <li>{{item}}</li>
+            } @empty {
+                <h1>NO HAY FREMEWORKS AGREGADOS</h1>
+            }
+        </ul>
+  
+    </div>
+</section>
+
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+
+</section>
